@@ -17,6 +17,7 @@
     "require": {
         "php": "^5.5",
 
+        "zendframework/zend-eventmanager": "^2.5",
         "zendframework/zend-modulemanager": "^2.5",
         "zendframework/zend-mvc": "^2.5",
         "zendframework/zend-session": "^2.5"
@@ -36,12 +37,7 @@
         }
     },
     "scripts": {
-        "check": [
-            "@cs",
-            "@test"
-        ],
         "cs": "phpcs",
-        "cs-fix": "phpcbf",
-        "test": "phpunit --colors=always"
+        "cs-fix": "phpcbf"
     }
 }
