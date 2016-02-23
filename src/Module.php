@@ -8,6 +8,7 @@ use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\EventManager\EventInterface;
 use Zend\Session\SessionManager;
 use Zend\Session\Container;
+use Zend\Console\Request as ConsoleRequest;
 
 class Module implements
     AutoloaderProviderInterface,
@@ -16,6 +17,13 @@ class Module implements
 {
     public function onBootstrap(EventInterface $e)
     {
+        $serviceManager = $e->getApplication()->getServiceManager();
+        $request        = $serviceManager->get('Request');
+
+        if ($request instanceof ConsoleRequest) {
+            return;
+        }
+
         $session = $e->getApplication()
             ->getServiceManager()
             ->get('Zend\Session\SessionManager');
@@ -23,9 +31,6 @@ class Module implements
 
         $container = new Container('initialized');
         if (!isset($container->init)) {
-            $serviceManager = $e->getApplication()->getServiceManager();
-            $request        = $serviceManager->get('Request');
-
             $session->regenerateId(true);
             $container->init          = 1;
             $container->remoteAddr    = $request->getServer()->get('REMOTE_ADDR');
