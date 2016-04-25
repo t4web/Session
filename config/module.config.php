@@ -11,13 +11,13 @@ return [
             'class' => SessionConfig::class,
             'options' => [
                 // see http://framework.zend.com/manual/current/en/modules/zend.session.config.html
-                'name' => 'myapp',
+                // 'name' => 'myapp',
             ],
         ],
         'storage' => SessionArrayStorage::class,
         'validators' => [
-            RemoteAddr::class,
-            HttpUserAgent::class,
+            // RemoteAddr::class,
+            // HttpUserAgent::class,
         ],
     ],
 ];
