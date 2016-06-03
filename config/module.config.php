@@ -28,4 +28,9 @@ return [
             // HttpUserAgent::class,
         ],
     ],
+    'service_manager' => [
+        'factories' => [
+            SaveHandler\DbTableGateway::class => SaveHandler\DbTableGatewayFactory::class,
+        ],
+    ],
 ];
