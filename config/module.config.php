@@ -1,5 +1,7 @@
 <?php
 
+namespace T4web\Session;
+
 use Zend\Session\Config\SessionConfig;
 use Zend\Session\Storage\SessionArrayStorage;
 use Zend\Session\Validator\RemoteAddr;
@@ -14,6 +16,12 @@ return [
                 // 'name' => 'myapp',
             ],
         ],
+        //'save_handler' => SaveHandler\DbTableGatewayFactory::class,
+        //'save_handler_options' => [
+        //    'db_table' => [
+        //        'table' => 'sessions'
+        //    ],
+        //],
         'storage' => SessionArrayStorage::class,
         'validators' => [
             // RemoteAddr::class,
