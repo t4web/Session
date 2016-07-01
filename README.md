@@ -39,11 +39,11 @@ By Default session store by native php engine, if you want store sessions in Db 
 And create table `sessions`:
 ```sql
 CREATE TABLE IF NOT EXISTS `sessions` (
-    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `id` varchar(32) NOT NULL,
     `name` varchar(32) NOT NULL,
     `modified` int(11),
     `lifetime` int(11),
     `data` text DEFAULT NULL,
     PRIMARY KEY (`id`, `name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
